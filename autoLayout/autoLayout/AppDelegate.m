@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  LocationUpdate
+//  autoLayout
 //
-//  Created by 1hhd on 17/4/18.
+//  Created by 1hhd on 17/3/24.
 //  Copyright © 2017年 1hhd. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "MASExampleScrollView.h"
 
 @interface AppDelegate ()
 
@@ -17,24 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-    UIAlertView *alert;
-    //判断定位权限
-    if([UIApplication sharedApplication].backgroundRefreshStatus == UIBackgroundRefreshStatusDenied)
-    {
-        alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"应用没有不可以定位，需要在在设置/通用/后台应用刷新开启" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    else if ([UIApplication sharedApplication].backgroundRefreshStatus == UIBackgroundRefreshStatusRestricted)
-    {
-        alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"设备不可以定位" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    else
-    {
-        NSLog(@"执行！！！！！！");
-    }
     
+//    MASExampleScrollView *main = [[MASExampleScrollView alloc]init];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.rootViewController = main;
+//    [self.window makeKeyAndVisible];
+//    
     return YES;
 }
 

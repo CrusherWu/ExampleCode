@@ -51,7 +51,7 @@
 }
 
 #pragma mark -
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray*)locations
 {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     
@@ -65,11 +65,12 @@
     NSString *fileName = [path stringByAppendingPathComponent:@"123.plist"];
     
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        NSLog(@"地址：%@",[placemarks firstObject].name);
+        //NSLog(@"地址：%@",[placemarks firstObject].name);
         NSString *time = [self getCurrentTime];
         _num++;
         time = [NSString stringWithFormat:@"%ld %@",(long)_num,time];
-        [self.dict setObject:[placemarks firstObject].name forKey:time];
+        [self.dict setObject:@"111" forKey:time];
+        //[self.dict setObject:[placemarks firstObject].name forKey:time];
         [_dict writeToFile:fileName atomically:YES];
     }];
 }
@@ -135,6 +136,11 @@
         _dict = [NSMutableDictionary dictionary];
     }
     return _dict;
+}
+
+-(void)didReceiveMemoryWarning
+{
+    NSLog(@"%s",__func__);
 }
 
 @end
